@@ -29,11 +29,11 @@ public class _01_CssSelector extends BaseStaticDriver {
         everyDay.click();
         bekle(3);
         WebElement good=driver.findElement(By.cssSelector("[id='u_smh_4589_0']"));
-        good.click();
+        good.click();                               //todo [value='Good'][type='radio']
         WebElement usingXYZ=driver.findElement(By.cssSelector("[id='u_smh_4597']"));
         usingXYZ.click();
         WebElement ucuncu= driver.findElement(By.cssSelector("[id='u_smh_4597']"));
-        ucuncu.click();
+        ucuncu.click();                                //todo [id='u_v4c_4597']> :nth-child(4)
 
         BekleKapat();
     }

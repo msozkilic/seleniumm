@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.Assert;
+
 
 import java.util.List;
 
@@ -74,26 +76,23 @@ public class _01_Xpath extends BaseStaticDriver {
         for (WebElement e:liste) {
             toplam+=Double.parseDouble(e.getText().substring(1));
             System.out.println(toplam);
-
-
         }
 
         WebElement itemTotal=driver.findElement(By.xpath("(//*[@class='summary_subtotal_label'])"));
        double itTot= Double.parseDouble(itemTotal.getText().substring(13));
         System.out.println(itTot);
 
-        if(toplam==itTot)
+       /* if(toplam==itTot) //todo if yerine Assert kullaniyoruz
             System.out.println("test passed");
         else
-            System.out.println("test failed");
+            System.out.println("test failed");*/
+
+        Assert.assertTrue(toplam==itTot);
 
 
 
-
-
-
-
-
+        bekle(3);
+       BekleKapat();
 
     }
 }

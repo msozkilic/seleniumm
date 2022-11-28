@@ -49,10 +49,15 @@ public class Deneme3 extends BaseStaticDriver {
         //TODO SEPETTEKI URUNLERLE ILK BASTAKI URUNLERIN KARSILASTIRILMASI
         List<WebElement>sepettekiUrunler=driver.findElements(By.cssSelector("div[class=inventory_item_name]"));
         List<String>sonUrunler=new ArrayList<>();
-        sonUrunler.add(sepettekiUrunler.toString());
+        for (WebElement urun:sepettekiUrunler) {
+            sonUrunler.add(urun.getText());
+        }
+        for (int i = 0; i < sepettekiUrunler.size(); i++) {
+            if(!sonUrunler.get(i).equals(urunAdlari.get(i)));
+            Assert.fail("urun adlari esit degil "+sonUrunler.get(i)+urunAdlari.get(i));
 
-        Assert.assertEquals(urunAdlari,sonUrunler);
-
+        }
+           Assert.assertEquals(urunAdlari,sonUrunler);
 
 
 

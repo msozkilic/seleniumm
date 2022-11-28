@@ -30,18 +30,22 @@ public class Deneme3 extends BaseStaticDriver {
        WebElement loginButton=driver.findElement(By.cssSelector("#login-button"));
        loginButton.click();
 
+       bekle(3);
+
        //TODO URUN ISIMLERINI BIR ARAYA ALDIK
        List<WebElement> product=driver.findElements(By.xpath("//div[@class='inventory_item_name'])"));
        List<String> urunAdlari=new ArrayList<>();
         for (WebElement e:product) {
             urunAdlari.add(e.getText());
         }
+        bekle(3);
         //TODO URUNLERI SEPETE EKLEDIK
         List<WebElement> addToChartButton=driver.findElements(By.xpath("//button[@class='btn_primary btn_inventory']"));
         for (WebElement e:addToChartButton
              ) {
             e.click();
         }
+        bekle(3);
         //TODO SEPETE GITTIK
         WebElement sepet=  driver.findElement(By.cssSelector("[class=shopping_cart_link]"));
         sepet.click();
@@ -52,11 +56,13 @@ public class Deneme3 extends BaseStaticDriver {
         for (WebElement urun:sepettekiUrunler) {
             sonUrunler.add(urun.getText());
         }
+        bekle(3);
         for (int i = 0; i < sepettekiUrunler.size(); i++) {
             if(!sonUrunler.get(i).equals(urunAdlari.get(i)));
             Assert.fail("urun adlari esit degil "+sonUrunler.get(i)+urunAdlari.get(i));
 
         }
+        bekle(3);
            Assert.assertEquals(urunAdlari,sonUrunler);
 
 

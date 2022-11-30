@@ -30,6 +30,7 @@ public class EtsyTest extends BaseStaticDriver {
 
         String url=driver.getCurrentUrl();
         Assert.assertTrue(url.contains("bib"));
+
         BekleKapat();
     }public static void elemanaGit(WebElement element) {
         Actions aksiyonlar = new Actions(driver);

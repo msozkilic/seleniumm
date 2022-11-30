@@ -10,7 +10,7 @@ public class AlertPart2 extends BaseStaticDriver {
 
         WebElement ClickMe1=driver.findElement(By.cssSelector("[class='btn btn-default btn-lg']"));
         ClickMe1.click();
-        bekle(2);
+        bekle(5);
 
         driver.switchTo().alert().dismiss();
         BekleKapat();

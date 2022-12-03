@@ -6,22 +6,26 @@ import org.openqa.selenium.WebElement;
 
 import java.nio.file.WatchEvent;
 import java.util.List;
+import java.util.Set;
 
 public class _03_WindowsClosing extends BaseStaticDriver {
     public static void main(String[] args) {
-        driver.get("https://www.selenium.dev/");
+        driver.get("https://www.selenium.dev/documentation/");
 
-        List<WebElement> linkler=driver.findElements(By.cssSelector("a[target='_blank'"));
-        for (WebElement link:linkler) {
-            if(!link.getAttribute("href").contains("mailto"))
-                link.click();
+        String anaSayfaWindowId = driver.getWindowHandle();
 
-
-            driver.quit();
-
-            BekleKapat();
-
+        List<WebElement> linkler = driver.findElements(By.cssSelector("a[target='_blank'"));
+        for (WebElement link : linkler) {
+            if (!link.getAttribute("href").contains("mailto")) ;
+            link.click();
         }
-
+        Set<String> windowsIdler = driver.getWindowHandles();
+        for (String id : windowsIdler) {
+            if (id.equals(anaSayfaWindowId)) continue;
+            driver.switchTo().window(id);
+            System.out.println(id + "Title " + driver.getTitle());
+            driver.close();
+        }
+        BekleKapat();
     }
 }
